@@ -47,6 +47,12 @@ class Users {
                 this.users = data;
 
                 this.render();
+                fetch('https://randomuser.me/api/?nat=gb&results=50')
+                .then(response => response.json())
+                .then(data => {
+                    this.users = data;
+                    this.render();
+                })
             })
             .catch(error => { console.error('error'); });
 
