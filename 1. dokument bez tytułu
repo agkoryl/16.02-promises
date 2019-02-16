@@ -1,0 +1,148 @@
+HTTP
+Hypertext Transfer protocol
+
+protocol that is a high-level interface that we use to make request over the internet. Its definition presumes an underlying and reliable transport layer protocol TCP
+HTTP:
+- text
+- stateless
+- silent-server architecture
+
+wpisujemy np. onet.pl -> jest zamieniony na adres IP w serwerze DNS -> 230.124.29.0 - serwer odczytuje ->
+serewer zwraca dokument html
+
+- a client-server architecture
+- the easiest request is url 
+http://user:XYV@example.com:3000/users/123?param=ABC&t=s
+protocol + user + pasword + host + port + resource + id + parameters 
+
+Parts of URL:
+require: 
+a. protocol e.g. http://
+b. host (api.com)
+c. resource (/users)
+
+Optional:
+a. user and password user:pass@api.com/ -> mamy tak nie pisac
+b. parameters (/users?s=word&limit=1000)
+c. version (/v2/users)
+d. port (http://localhost:3000)
+
+The client and server communication is by plain text. 
+Client sends request and server sends response. 
+
+Request contains:
+1. A request line (e.g. GET users/123 HTTP/1.1)
+2. Request header fields - components of the header section of http request and response. They define the operatin parameters of an http transaction.
+https://en.wikipedia.org/wiki/List_of_HTTP_header_fields
+
+3. An empty line
+4. An optional message body 
+
+Response:
+statusy: 200 -ok, 301 - adres nie istnieje, przenosi na inny adres, 302
+http.cat
+Starting with 
+1 - informational
+2 - success
+3 - redirections
+4 - something wrong with the adress
+5 - somethin wrong with the server
+
+
+AJAX
+
+Asynchronicznosc
+Pewne/dane zapytania moga byc wykonywane w tle, aby nie zaburzac dzialania interfejsu uzytkownika. 
+
+For example, setTimeout() function is an asynchronic function. It will be executed at the end. 
+
+In JS HEAP (stos), first synchronic operations are executed, asynchrnonic at the end. 
+e.g. 
+window.setTimeout(function() {
+	console.log("second");
+}, 0);
+console.log("first");
+
+result: first, second
+
+
+AJAX - asynchronic JavScript and XML
+ajax is a term that describes an approach of using a number of existing technologies together including HTML, XHTML, CSS, JS, DOM, XML and XML HttpRequest object. 
+
+XML (ang. Extensible Markup Language, w wolnym tłumaczeniu Rozszerzalny Język Znaczników) – uniwersalny język znaczników przeznaczony do reprezentowania różnych danych w strukturalizowany sposób.
+
+XML http request are used to interact with servers. You can retireve data from an URL without having to do a ful page refresh. 
+
+cos tam cos tam vanilla.js
+
+
+PROMISE
+we can use some inbuilt fetch api to hit some requests
+
+const data = fetch('https://randomuser.me/api/'); -> po tym dostaje sie tylko jakiegos promisa, ktory moze byc resolved albo nie itp. 
+
+data.then(response => { console.log(response);}); -> tutaj dostajemy jakies naglowki
+
+data.then(response => {console.log(response.json())});
+
+data.then(response => return response.json(); }).then(data => {console.log(data)});
+
+
+fetch()
+.then(response => response.json())
+.then(date => {})
+.then()
+.
+.
+.
+.catch() -> lapie blad
+
+
+Wykorzystanie funkcji asynchronicznej
+
+async function getUsers() {
+	return fetch('http://..')
+}
+
+async function render() {
+
+	const users = await getUsers();
+
+	users.map()
+}
+
+
+CORS - Cross Origin Resource Sharing
+CORS proxy - na prezentacji, bo juz mi sie nie chce pisac
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
