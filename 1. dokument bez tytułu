@@ -117,6 +117,15 @@ CORS proxy - na prezentacji, bo juz mi sie nie chce pisac
 
 
 
+promise can have 3 states
+1. Pending: initial state
+2. Fulfilled: operation completed successfully
+3. Rejected: meaning that operation failed
+
+
+response.json()
+response.text()
+Both methods retur promises
 
 
 
